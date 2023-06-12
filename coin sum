@@ -1,0 +1,24 @@
+coins = [200, 100, 50, 20, 10, 5, 2, 1]
+
+
+def count_ways(target, coin_index):
+    
+    if target == 0:
+        return 1
+    if coin_index >= len(coins):
+        return 0
+
+    
+    count = 0
+    coin = coins[coin_index]
+    for quantity in range(0, target // coin + 1):
+        remaining = target - coin * quantity
+        count += count_ways(remaining, coin_index + 1)
+    
+    return count
+
+
+total_ways = count_ways(200, 0)
+
+
+print("The number of different ways to make £2 is:", total_ways)
