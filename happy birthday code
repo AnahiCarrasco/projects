@@ -1,0 +1,13 @@
+import datetime
+
+
+name, birth_year = input("Enter your name and year of birth (space-separated): ").split()
+
+
+current_year = datetime.datetime.now().year
+
+
+age = current_year - int(birth_year)
+
+
+print(f"Happy Birthday {name}! Your current age is {age}")
