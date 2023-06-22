@@ -1,0 +1,14 @@
+!pip install transformers
+from transformers import pipeline
+classifier = pipeline('sentiment-analysis')
+classifier('I enjoy watching the stars at night. ')
+classifier('I love the planet Saturn!')
+classifier('I hate rainy days')
+classifier = pipeline('text-classification', model = 'roberta-large-mnli')
+classifier('There is a party going on. Peoplr are dacing.')
+classifier = pipeline('text-classification', model = 'cross-encoder/qnli-electra-base')
+classifier('Where is the capital of France, Paris is the capital of France.')
+classifier = pipeline('text-classification', model = 'textattack/bert-base-uncased-QQP')
+classifier('Which city is the capital of California?, Where is the capital of Califronia?')
+classifier = pipeline('text-classification', model = 'textattack/distilbert-base-uncased-CoLA')
+classifier('I will walk home once I was through the wall.')
